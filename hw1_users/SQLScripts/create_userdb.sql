@@ -28,36 +28,36 @@ CREATE TABLE `hw1_user`.`users` (
 
 # add some data
 INSERT INTO `hw1_user`.`addresses`(ID) VALUES(
-'1'
+'11'
 );
 INSERT INTO `hw1_user`.`addresses`(ID) VALUES(
-'2'
+'22'
 );
 INSERT INTO `hw1_user`.`addresses`(ID) VALUES(
-'3'
+'33'
 );
 INSERT INTO `hw1_user`.`addresses`(ID) VALUES(
-'4'
+'44'
 );
 INSERT INTO `hw1_user`.`addresses`(ID) VALUES(
-'5'
+'55'
 );
 
 
 INSERT INTO `hw1_user`.`users` VALUES(
-'1','jean','huang','123@gmail.com','1'
+'1','jean','huang','123@gmail.com','11'
 );
 INSERT INTO `hw1_user`.`users` VALUES(
-'2','jeann','huang','1233@gmail.com','2'
+'2','jeann','huang','1233@gmail.com','22'
 );
 INSERT INTO `hw1_user`.`users` VALUES(
-'3','jeane','huang','12f3@gmail.com','3'
+'3','jeane','huang','12f3@gmail.com','33'
 );
 INSERT INTO `hw1_user`.`users` VALUES(
-'4','jeanwn','huang','12d33@gmail.com','4'
+'4','jeanwn','huang','12d33@gmail.com','44'
 );
 INSERT INTO `hw1_user`.`users` VALUES(
-'5','jean','huang','12s3@gmail.com','5'
+'5','jean','huang','12s3@gmail.com','44'
 );
 
 

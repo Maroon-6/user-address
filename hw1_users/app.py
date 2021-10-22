@@ -76,5 +76,22 @@ def process_single_address(id):
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
 
+@app.route('/users/<userid>/addresses',methods=['GET'])
+def get_user_adress(userid):
+    if request.method=='GET':
+        template = {'ID': userid}
+        res=AddressResource.get_address_by_userid(template)
+        rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
+        return rsp
+
+@app.route('/addresses/<addressid>/users',methods=['GET'])
+def get_address_users(addressid):
+    if request.method=='GET':
+        template = {'addressID': addressid}
+        res=AddressResource.get_users_by_addressid(template)
+        rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
+        return rsp
+
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0")

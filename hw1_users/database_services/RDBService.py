@@ -55,9 +55,8 @@ def _get_where_clause_args(template):
             args.append(v)
 
         clause = " where " +  " AND ".join(terms)
-
-
     return clause, args
+
 
 def _get_insert_clause_args(template):
 
@@ -155,12 +154,37 @@ def delete_by_id(db_schema, table_name, id):
     wc, args = _get_delete_clause_args(id)
 
     sql = "DELETE FROM " + db_schema + "." + table_name + " WHERE " + wc
-    print(sql)
     res = cur.execute(sql, args=args)
 
     conn.commit()
     conn.close()
 
     return res
+
+def get_address_by_userid(db_schema,table_name1,table_name2,template):
+    conn = _get_db_connection()
+    cur = conn.cursor()
+    wc,args = _get_where_clause_args(template)
+
+    sql = "SELECT * FROM "+ db_schema + "." + table_name1 + " where ID = ( SELECT addressID FROM " + db_schema + "." + table_name2 + "" + wc + ')'
+    res = cur.execute(sql, args=args)
+    res = cur.fetchall()
+    conn.close()
+
+    return res
+
+def get_users_by_addressid(db_schema,table_name,template):
+    conn = _get_db_connection()
+    cur = conn.cursor()
+    wc, args = _get_where_clause_args(template)
+
+    sql = "SELECT * FROM "+ db_schema + "." + table_name + wc
+    res = cur.execute(sql, args=args)
+    res = cur.fetchall()
+    conn.close()
+
+    return res
+
+
 
 

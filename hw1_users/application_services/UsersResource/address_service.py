@@ -25,3 +25,13 @@ class AddressResource():
         res = d_service.delete_by_id('hw1_user', 'addresses',
                                            id)
         return res
+
+    def get_address_by_userid(template):
+        res=d_service.get_address_by_userid('hw1_user', 'addresses','users',
+                                           template)
+        return res
+
+    def get_users_by_addressid(template):
+        res=d_service.get_users_by_addressid('hw1_user', 'users',
+                                           template)
+        return res
