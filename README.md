@@ -1,5 +1,7 @@
 #### Current API
 
+```
+
 /users (GET, POST)
 
 /users/<userID> (GET, PUT, DELETE)
@@ -11,6 +13,8 @@
 /users/<userid>/addresses (GET)
 
 /addresses/<addressid>/users (GET)
+
+```
 
 
 
