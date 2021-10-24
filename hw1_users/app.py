@@ -22,7 +22,7 @@ def get_or_post_users():
         return rsp
     # insert a user to database
     elif request.method == 'POST':
-        template=eval(str(request.data,'utf-8'))
+        template=request.form
         res = UserResource.post_user_by_template(template)
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
@@ -35,7 +35,7 @@ def process_single_user(id):
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
     elif request.method == 'PUT':
-        template=eval(str(request.data,'utf-8'))
+        template=request.form
         res = UserResource.put_user_by_id(template,id)
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
@@ -54,7 +54,7 @@ def get_or_post_address():
         return rsp
     # insert an address to database
     elif request.method == 'POST':
-        template=eval(str(request.data,'utf-8'))
+        template=request.form
         res = AddressResource.post_address_by_template(template)
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
@@ -68,7 +68,7 @@ def process_single_address(id):
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
     elif request.method == 'PUT':
-        template=eval(str(request.data,'utf-8'))
+        template=request.form
         res = AddressResource.put_address_by_id(template, id)
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
