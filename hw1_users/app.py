@@ -7,6 +7,7 @@ import json
 
 app = Flask(__name__)
 
+null=None
 
 @app.route('/')
 def hello_world():  # put application's code here
@@ -21,7 +22,7 @@ def get_or_post_users():
         return rsp
     # insert a user to database
     elif request.method == 'POST':
-        template=request.form
+        template=eval(str(request.data,'utf-8'))
         res = UserResource.post_user_by_template(template)
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
@@ -34,7 +35,7 @@ def process_single_user(id):
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
     elif request.method == 'PUT':
-        template = request.form
+        template=eval(str(request.data,'utf-8'))
         res = UserResource.put_user_by_id(template,id)
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
@@ -53,7 +54,7 @@ def get_or_post_address():
         return rsp
     # insert an address to database
     elif request.method == 'POST':
-        template = request.form
+        template=eval(str(request.data,'utf-8'))
         res = AddressResource.post_address_by_template(template)
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
@@ -67,7 +68,7 @@ def process_single_address(id):
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
     elif request.method == 'PUT':
-        template = request.form
+        template=eval(str(request.data,'utf-8'))
         res = AddressResource.put_address_by_id(template, id)
         rsp = Response(json.dumps(res, default=str), status=200, content_type="application/json")
         return rsp
