@@ -1,7 +1,3 @@
-task 7  of sprint 2
-
-
-
 #### Current API
 
 /users (GET, POST)
@@ -15,6 +11,10 @@ task 7  of sprint 2
 /users/<userid>/addresses (GET)
 
 /addresses/<addressid>/users (GET)
+
+/login
+
+/getid 
 
 
 
